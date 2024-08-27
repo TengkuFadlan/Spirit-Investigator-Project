@@ -1,31 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SmoothCameraLock : MonoBehaviour
 {
-    public Transform playerTransform;
-    public float smoothSpeed = 0.125f;
-    public Vector3 offset;
+    public float cameraLerp = 1f;
 
-    private Transform cameraTransform;
+    Camera mainCamera;
+    Vector3 newCameraPosition;
 
     void Awake()
     {
-        cameraTransform = Camera.main.transform;
-
-        if (playerTransform == null)
-        {
-            playerTransform = transform;
-        }
-
-        offset = cameraTransform.position - playerTransform.position;
+        mainCamera = Camera.main;
+        newCameraPosition = mainCamera.transform.position;
     }
-
-    void LateUpdate()
+    
+    void FixedUpdate()
     {
-        Vector3 desiredPosition = playerTransform.position + offset;
+        newCameraPosition.x = transform.position.x;
+        newCameraPosition.y = transform.position.y;
 
-        Vector3 smoothedPosition = Vector3.Lerp(cameraTransform.position, desiredPosition, smoothSpeed);
-
-        cameraTransform.position = smoothedPosition;
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, newCameraPosition, cameraLerp * Time.fixedDeltaTime);
     }
 }

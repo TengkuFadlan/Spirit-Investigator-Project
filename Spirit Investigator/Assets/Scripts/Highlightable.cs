@@ -19,4 +19,9 @@ public class Highlightable : MonoBehaviour
         if (spriteRenderer != null)
             spriteRenderer.color = highlight ? highlightColor : originalColor;
     }
+
+    void OnDisable()
+    {
+        spriteRenderer.color = originalColor;
+    }
 }

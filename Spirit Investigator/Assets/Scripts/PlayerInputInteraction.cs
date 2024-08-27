@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class PlayerInputInteraction : MonoBehaviour
 {
-    public float interactionRange = 5f;  // Maximum range for interaction
-    public LayerMask interactionLayerMask;  // Layer mask for interactable objects
-    public LayerMask obstacleLayerMask;  // Layer mask for obstacles (for line of sight)
+    public float interactionRange = 5f;
     private GameObject currentInteractableObject;
     private Highlightable currentHighlight;
 
@@ -23,19 +21,17 @@ public class PlayerInputInteraction : MonoBehaviour
 
     void SearchForInteractable()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactionRange, interactionLayerMask);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactionRange);
         GameObject nearestObject = null;
         float minDistance = interactionRange;
 
         foreach (Collider2D hit in hits)
         {
-            float distance = Vector2.Distance(transform.position, hit.transform.position);
-            if (distance < minDistance)
+            IInteractable interactable = hit.GetComponent<IInteractable>();
+            if (interactable != null)
             {
-                Vector2 direction = (hit.transform.position - transform.position).normalized;
-                RaycastHit2D lineOfSight = Physics2D.Raycast(transform.position, direction, distance, obstacleLayerMask);
-
-                if (lineOfSight.collider == null)
+                float distance = Vector2.Distance(transform.position, hit.transform.position);
+                if (distance < minDistance)
                 {
                     nearestObject = hit.gameObject;
                     minDistance = distance;

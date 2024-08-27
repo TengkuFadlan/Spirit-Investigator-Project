@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243619b1024e3c144814ab43e0ad56ae, type: 3}
+  m_Name: Conversation
+  m_EditorClassIdentifier: 
+  eventName: GimmeKey
+  dialogues:
+  - {fileID: 11400000, guid: ec9806d22af42da4d81ad94fdd4546e2, type: 2}
+  - {fileID: 11400000, guid: 34118ff99e679d24392ac7736ce9ed12, type: 2}
+  - {fileID: 11400000, guid: 902211fa1f9eef5428cb6153d8ab184a, type: 2}
+  - {fileID: 11400000, guid: e592711f2ea151b468c12cbcbbce5eca, type: 2}
+  - {fileID: 11400000, guid: 36d8ad517cc4b194489c12d9a40739d2, type: 2}
+  - {fileID: 11400000, guid: 7ae71ce62c96bec4ea993d276a606334, type: 2}
+  - {fileID: 11400000, guid: 97bf7a8761fef8a4daf3438015afe278, type: 2}
