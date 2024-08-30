@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cb4277c76e5804f818655dd9cbaeff, type: 3}
+  m_Name: Dialogue 1
+  m_EditorClassIdentifier: 
+  speakerText: Investigator
+  sentenceText: It's a book that contains the number 3.
+  leftCharacterImage: {fileID: 2800000, guid: 52bc5a47abcd5c94db32676f0c5bb72a, type: 3}
+  isLeftSpeaking: 1
+  rightCharacterImage: {fileID: 0}
+  isRightSpeaking: 0

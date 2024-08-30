@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
     public Vector2 movementDirectionInput;
     public Vector2 lastMovementDirection = Vector2.down;
     public float moveSpeed;
+    public AudioSource walkingSound;
 
     Rigidbody2D rigidBody2D;
 
@@ -22,6 +23,13 @@ public class CharacterMovement : MonoBehaviour
         rigidBody2D.velocity = normalizedMovementDirection * moveSpeed;
 
         if (normalizedMovementDirection != Vector2.zero)
+
+        {
             lastMovementDirection = normalizedMovementDirection;
+            if (walkingSound.isPlaying == false)
+            {
+                walkingSound.Play();
+            }
+        }
     }
 }

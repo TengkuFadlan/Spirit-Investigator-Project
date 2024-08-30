@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInputInteraction : MonoBehaviour
@@ -15,7 +17,8 @@ public class PlayerInputInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            TryInteract();
+            if (Time.timeScale != 0)
+                TryInteract();
         }
     }
 
@@ -23,7 +26,7 @@ public class PlayerInputInteraction : MonoBehaviour
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactionRange);
         GameObject nearestObject = null;
-        float minDistance = interactionRange;
+        float closestDistance = Mathf.Infinity;
 
         foreach (Collider2D hit in hits)
         {
@@ -31,10 +34,10 @@ public class PlayerInputInteraction : MonoBehaviour
             if (interactable != null)
             {
                 float distance = Vector2.Distance(transform.position, hit.transform.position);
-                if (distance < minDistance)
+                if (distance < closestDistance)
                 {
                     nearestObject = hit.gameObject;
-                    minDistance = distance;
+                    closestDistance = distance;
                 }
             }
         }

@@ -13,7 +13,10 @@ public class PlayerInputCharacterMovement : MonoBehaviour
 
     void Update()
     {
-        characterMovement.movementDirectionInput.x = Input.GetAxisRaw("Horizontal");
-        characterMovement.movementDirectionInput.y = Input.GetAxisRaw("Vertical");
+        if (Time.timeScale != 0)
+        {
+            characterMovement.movementDirectionInput.x = Input.GetAxisRaw("Horizontal");
+            characterMovement.movementDirectionInput.y = Input.GetAxisRaw("Vertical");
+        }
     }
 }
